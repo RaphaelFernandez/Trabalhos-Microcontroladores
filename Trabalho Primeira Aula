@@ -1,0 +1,87 @@
+Raphael Fernandez             RA:13.04199-0
+
+1.	Revisão
+
+	a.	Sistema de Repositorio de Software é uma categoria de ferramenta de software que ajuda a equipe a gerenciar mudanças no código ao longo do tempo.
+	O Sistema de Repositorio de Software mantem o controle de cada modificação do código em um database.Caso um erro seja feito,os desenvolvedores podem acessar versões anteriores do código para corrigi-los,minimizando a interrupção à outros membros da equipe.
+	
+	b.	As principais fabricantes de microcontroladores sao:
+		i.	Analog Devices
+		ii.	Atmel
+		iii.	CYPRESS
+		iv.	Cyrod Technologies
+		v.	ELAN
+		vi.	EMMARIN
+		Dentre outras.
+	
+	c.	Os principais perificos de um uC sao:
+		i.	UART:Comunicação sincrona serial
+		ii.	Timer:Temporizador
+		iii.	GPIO:Controle dos pinos de forma digital
+		iv.	A/D:Conversor analogico para digital
+		v.	PWM:Modulação por largura de pulsos
+		vi.	Spl/I²C:Comunicaçoes seriais com outros chips
+	
+	d.	Big e Small Endian sao dois jeitos para organizar  palavras multi-byte.
+	Em Big Endian o byte mais significativo é guardado no byte com menor endereço.
+	Em Little Endian o byte menos significativo é guardado o byte com menor endereço
+
+2.	ARM
+	
+	a.	A Arquitetura de Barramento Avançado de Microcontrolador é usada como padarao de comunicação em chips ARM.Sua função é interconectar módulos do chip.
+	Ele é divido em dois tipos de barramento,barramento de sistema e barramento periféricos.
+		
+		i.	APB
+		O APB foi criado para controlar dispositivos periféricos e de baixo desempenho, também apresenta um baixo consumo de energia e pouca largura de banda.
+		O APB é normalmente encapsulado como o único slave (escravo) para dispositivos ASB ou AHB, fazendo essas conexões através de pontes, onde ocorrem as conversões dos sinais necessários
+
+		ii.	AHB
+		Uma transação simples no AHB consiste de uma fase de endereçamento e uma fase subsequente de dados.
+			1.	Mestre AHB
+			O mestre do barramento é capaz de iniciar operações de leitura e escrita fornecendo endereço e sinais de controle. Dois mestres não podem utilizar o barramento simultaneamente.
+			2.	Escravo AHB
+			O escravo AHB responde às operações de leitura e escrita solicitadas pelo mestre quando estão no seu intervalo de endereçamento. A resposta do escravo pode ser um  indicativo de sucesso, falha ou espera pela transferência dos dados.
+			3.	Árbitro AHB
+			O árbitro AHB garante que apenas um mestre tenha controle do barramento num dado intervalo de tempo. O protocolo de arbitragem é fixo, mas qualquer algoritmo de arbitragem pode ser utilizado (depende da necessidade do sistema).
+			4.	Seletor AHB
+			Decodifica o sinal de endereço de cada transferência de dados e fornece o sinal de seleção para o escravo envolvido na transferência. Pode existir somente um seletor em qualquer implementação de AHB.
+		iii.	AXI
+		O protocolo AXI se baseia em operações em rajada (burst). Todas as transações possuem um endereço e informações de controle, ambas enviadas pelo canal de endereço, que fornecerá a natureza do dado  a ser transferido. O dado é transferido entre o mestre e o escravo utilizando o canal de leitura de dados para o mestre se for operação de leitura ou, se utiliza o canal de escrita de dados para o escravo para operações de escrita de dado.
+
+	b.	Pipeline é uma técnica utilizada pelos processadores mais modernos e consiste em dividir a execução das instruções em partes e cada uma destas partes pode ser executada em paralelo.
+	O pipeline permite que quase todas as instruções possam ser executadas em um ciclo de máquina, com exceção das que alteram o contador de programa, como chamadas de rotinas e seus retornos. Nestes casos, o pipeline sofre uma penalidade de um ciclo de clock devendo descartar  a instrução que já havia sido buscada para então carregar a instrução no endereço correto, consumindo, portanto, dois ciclos de instrução.
+
+3.	Topicos Extras
+	a.	--
+	b.	--
+	c.	As memórias existentes são: RAM (Random Access Memory), ROM (Read-Only Memory) e Hibridas (ex. Flash, NVRAM e EEPROM)
+
+		i.	Memória RAM (Random Access Memory):
+		Existe dois tipos de memória RAM, a SRAM (Static RAM) e a DRAM (Dynamic RAM). A SRAM é uma memória que retém dados enquanto estiver sendo alimentada eletricamente. Se tirar sua alimentação ela apaga os dados. A DRAM funciona da mesma maneira, mas ela escreve e apaga mesmo quando estiver sendo alimentada eletricamente. Outra diferença entra as duas, é o custo e a velocidade. A SRAM é muito mais rápida (cerca de 4x) que DRAM, porém o custo é bem maior. O microcontrolador utiliza essa memória para acesso rápido de escrita e leitura quando em execução.
+		ii.	Memória ROM (Read-Only Memory):
+		As memórias ROM são memória que retém dados mesmo quando não estiverem sendo alimentadas eletricamente. Elas se diferenciam a partir do modo como são programadas e o número de vezes que podem ser escritas. Existem dois tipos: a PROM ( Programmable Read-Only Memory) e a EPROM (Erasable-and-Programmable Read-Only Memory). A PROM pode-se apenas programá-lo uma vez e a EPROM pode programá-lo e apagá-lo um certo número de vezes de acordo com a especificação do fabricante. As memórias ROM são gravadas byte a byte, isto pode ser uma vantagem ou desvantagem de acordo com a necessidade ou rapidez.
+		iii.	Memórias Híbridas (Flash, NVRAM e EEPROM)
+		As memórias híbridas são memórias que podem ser escritas e re-escritas como as memórias RAM, mas armazenam dados mesmo depois de desligadas como as memórias ROM.
+		As memórias EEPROM (Electrically-Erasable-Programmable) são eletricamente apagáveis e programáveis. Elas são iguais a EPROM, mas são programadas eletricamente enquanto que as EPROM são programáveis com exposição à luz. Uma desvantagem da EEPROM é o custo alto e o número limitado de ciclos de gravação.
+		A memória Flash é de alta densidade, baixo custo, não-volátil e rápidas  (para ler e não para escrever). Elas podem ser reescritas eletricamente como a EEPROM, porém são mais rápidas e gravam de setor a setor (grupo de bytes).Geralmente as memórias FLASH são utilizadas para gravar a programação do microcontrolador, por causa da velocidade e armazenamento.
+		Por fim, existe a NVRAM (Non-Volatile RAM). Esta memória é idêntica a SRAM, porém ela tem uma bateria de backup que ao ser desligada, a bateria de backup a alimenta e assim armazenando a memória. Essa memória é utilizada geralmente no clock do computador, onde em uma bateria que a alimenta, mesmo com o computador desligado.
+	d.	São elas:
+		i.	int, para números inteiros entre -2147483648 e 2147483647, utiliza 4 bytes;
+		ii.	char, para caracteres individuais do padrão ASCII, utiliza 1 byte;
+		iii.	float, para reais entre (aproximadamente) 10-38 e 1038, utiliza 4 bytes, precisão de 7 dígitos;
+		iv.	double, para reais entre (aproximadamente) 10-4932 e 104932, utiliza 8 bytes, precisão de 15 dígitos;
+		v.	bool, para indicar true (verdadeiro) ou false (falso), utiliza 1 byte; Presente apenas no padrão C99 em diante.
+	e.	--
+
+
+
+
+
+Fonte
+https://www.atlassian.com/git/tutorials/what-is-version-control
+http://embedeo.org/microcontroller_manufacturers/
+https://chortle.ccsu.edu/AssemblyTutorial/Chapter-15/ass15_3.html
+http://www.univasf.edu.br/~romulo.camara/novo/wp-content/uploads/2013/11/Barramento-AMBA-.pdf
+http://rafaellindemann.blogspot.com.br/2012/05/ciclo-de-instrucao-para-os.html
+http://labdegaragem.com/profiles/blogs/artigo-os-tipos-de-mem-ria-encontrados-em-microcontroladores
+https://pt.wikibooks.org/wiki/Programar_em_C/Tipos_de_dados
